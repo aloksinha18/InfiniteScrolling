@@ -24,3 +24,9 @@ protocol ImageLoader {
     typealias Result = Swift.Result<[FeedImage] , Error>
     func loadImages(completion: @escaping (ImageLoader.Result) -> Void)
 }
+
+
+protocol FeedImageDataLoader {
+    typealias Result = Swift.Result<Data, Error>
+    func loadImageData(from url: URL, completion: @escaping (Result) -> Void)
+}

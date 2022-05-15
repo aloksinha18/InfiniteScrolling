@@ -85,7 +85,6 @@ final class RemoteFeedLoaderTests: XCTestCase {
         sut.loadImages { result in
             switch result {
             case .success(let feed):
-                
                 XCTAssertTrue(feed.isEmpty)
             default:
                 XCTFail("This should not fail and passed instead as this is success case check input and exppected output")
