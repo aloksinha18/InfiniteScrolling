@@ -10,6 +10,7 @@
 		16BF98E028313FC900CBA22D /* RemoteFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BF98DF28313FC900CBA22D /* RemoteFeedLoader.swift */; };
 		16BF98E228313FE800CBA22D /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BF98E128313FE800CBA22D /* HTTPClient.swift */; };
 		16BF98E42831A2F500CBA22D /* RemoteFeedImageDataLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BF98E32831A2F500CBA22D /* RemoteFeedImageDataLoaderTests.swift */; };
+		16BF98E62831A50800CBA22D /* RemoteFeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BF98E52831A50800CBA22D /* RemoteFeedImageDataLoader.swift */; };
 		16E98EAC2830F6610074CC4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E98EAB2830F6610074CC4B /* AppDelegate.swift */; };
 		16E98EAE2830F6610074CC4B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E98EAD2830F6610074CC4B /* SceneDelegate.swift */; };
 		16E98EB02830F6610074CC4B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E98EAF2830F6610074CC4B /* ViewController.swift */; };
@@ -44,6 +45,7 @@
 		16BF98DF28313FC900CBA22D /* RemoteFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoader.swift; sourceTree = "<group>"; };
 		16BF98E128313FE800CBA22D /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		16BF98E32831A2F500CBA22D /* RemoteFeedImageDataLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedImageDataLoaderTests.swift; sourceTree = "<group>"; };
+		16BF98E52831A50800CBA22D /* RemoteFeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedImageDataLoader.swift; sourceTree = "<group>"; };
 		16E98EA82830F6610074CC4B /* InfiniteScrolling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InfiniteScrolling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16E98EAB2830F6610074CC4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16E98EAD2830F6610074CC4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				16E98EDC28310E2F0074CC4B /* ImageLoader.swift */,
 				16BF98DF28313FC900CBA22D /* RemoteFeedLoader.swift */,
 				16BF98E128313FE800CBA22D /* HTTPClient.swift */,
+				16BF98E52831A50800CBA22D /* RemoteFeedImageDataLoader.swift */,
 			);
 			path = ImageLoader;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				16BF98E228313FE800CBA22D /* HTTPClient.swift in Sources */,
 				16E98EDD28310E2F0074CC4B /* ImageLoader.swift in Sources */,
 				16BF98E028313FC900CBA22D /* RemoteFeedLoader.swift in Sources */,
+				16BF98E62831A50800CBA22D /* RemoteFeedImageDataLoader.swift in Sources */,
 				16E98EAE2830F6610074CC4B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
