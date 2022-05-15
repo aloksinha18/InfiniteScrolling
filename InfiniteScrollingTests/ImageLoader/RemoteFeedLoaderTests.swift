@@ -49,6 +49,54 @@ final class RemoteFeedLoaderTests: XCTestCase {
         wait(for: [expectation], timeout: 1.0)
     }
     
+    func testInvalidResponse() {
+        let client  = MockHTTPClient()
+        let sut = RemoteFeedLoader(url: anyURL(), client: client)
+        
+        let dataString = """
+                            [{"id":"0","authors":"Alejandro Escamilla","width":5616,"height":3744,"url":"https://unsplash.com/photos/yC-Yzbqy7PY","download_url":"https://picsum.photos/id/0/5616/3744"}]
+                         """
+        
+        let expectation = expectation(description: "wait for images to load")
+        
+        sut.loadImages { result in
+            switch result {
+            case .failure(let error as RemoteFeedLoader.Error):
+                XCTAssertEqual(error, RemoteFeedLoader.Error.invalidData)
+            default:
+                XCTFail("This should not pass and passed instead as this is invalid case check input and exppected output")
+            }
+            expectation.fulfill()
+        }
+        
+        client.completeWithSuccess(with: dataString.data(using: .utf8)!)
+        wait(for: [expectation], timeout: 1.0)
+    }
+    
+    func testEmptyResponse() {
+        let client  = MockHTTPClient()
+        let sut = RemoteFeedLoader(url: anyURL(), client: client)
+        
+        let dataString = """
+                            []
+                         """
+        let expectation = expectation(description: "wait for images to load")
+        
+        sut.loadImages { result in
+            switch result {
+            case .success(let feed):
+                
+                XCTAssertTrue(feed.isEmpty)
+            default:
+                XCTFail("This should not fail and passed instead as this is success case check input and exppected output")
+            }
+            expectation.fulfill()
+        }
+        
+        client.completeWithSuccess(with: dataString.data(using: .utf8)!)
+        wait(for: [expectation], timeout: 1.0)
+    }
+    
     func anyURL() -> URL {
         return URL(string: "http://any-url.com")!
     }
