@@ -21,6 +21,7 @@ class ImageFeedCollectionViewController: UICollectionViewController {
     }
     
     private func setupCollectionView() {
+        view.backgroundColor = .white
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         NSLayoutConstraint.activate([
