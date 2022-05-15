@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FeedImage {
+struct FeedImage: Equatable, Codable {
     let id, author: String
     let width, height: Int
     let url, downloadURL: String
@@ -18,8 +18,9 @@ struct FeedImage {
     }
 }
 
+typealias Root = [FeedImage]
 
 protocol ImageLoader {
     typealias Result = Swift.Result<[FeedImage] , Error>
-    func loadImages(completion: ([Result]) -> Void)
+    func loadImages(completion: @escaping (ImageLoader.Result) -> Void)
 }
