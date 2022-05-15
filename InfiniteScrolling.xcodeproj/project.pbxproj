@@ -16,6 +16,7 @@
 		16E98EC32830F6630074CC4B /* InfiniteScrollingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E98EC22830F6630074CC4B /* InfiniteScrollingTests.swift */; };
 		16E98ECD2830F6630074CC4B /* InfiniteScrollingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E98ECC2830F6630074CC4B /* InfiniteScrollingUITests.swift */; };
 		16E98ECF2830F6630074CC4B /* InfiniteScrollingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E98ECE2830F6630074CC4B /* InfiniteScrollingUITestsLaunchTests.swift */; };
+		16E98EDD28310E2F0074CC4B /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E98EDC28310E2F0074CC4B /* ImageLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		16E98EC82830F6630074CC4B /* InfiniteScrollingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InfiniteScrollingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		16E98ECC2830F6630074CC4B /* InfiniteScrollingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteScrollingUITests.swift; sourceTree = "<group>"; };
 		16E98ECE2830F6630074CC4B /* InfiniteScrollingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteScrollingUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		16E98EDC28310E2F0074CC4B /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		16E98EAA2830F6610074CC4B /* InfiniteScrolling */ = {
 			isa = PBXGroup;
 			children = (
+				16E98EDB28310E050074CC4B /* ImageLoader */,
 				16E98EAB2830F6610074CC4B /* AppDelegate.swift */,
 				16E98EAD2830F6610074CC4B /* SceneDelegate.swift */,
 				16E98EAF2830F6610074CC4B /* ViewController.swift */,
@@ -125,6 +128,14 @@
 				16E98ECE2830F6630074CC4B /* InfiniteScrollingUITestsLaunchTests.swift */,
 			);
 			path = InfiniteScrollingUITests;
+			sourceTree = "<group>";
+		};
+		16E98EDB28310E050074CC4B /* ImageLoader */ = {
+			isa = PBXGroup;
+			children = (
+				16E98EDC28310E2F0074CC4B /* ImageLoader.swift */,
+			);
+			path = ImageLoader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +271,7 @@
 			files = (
 				16E98EB02830F6610074CC4B /* ViewController.swift in Sources */,
 				16E98EAC2830F6610074CC4B /* AppDelegate.swift in Sources */,
+				16E98EDD28310E2F0074CC4B /* ImageLoader.swift in Sources */,
 				16E98EAE2830F6610074CC4B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
