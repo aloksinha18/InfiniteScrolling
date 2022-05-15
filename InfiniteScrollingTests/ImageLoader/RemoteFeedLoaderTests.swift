@@ -6,54 +6,7 @@
 //
 
 import XCTest
-import Foundation
 @testable import InfiniteScrolling
-
-protocol HTTPClient {
-    typealias HTTPClientResult = Swift.Result<Data, Error>
-    func get(form url: URL, completion: @escaping (HTTPClientResult) -> Void)
-}
-
-class RemoteFeedLoader: ImageLoader {
-    
-    enum Error: Swift.Error {
-        case connectivity
-        case invalidData
-    }
-    
-    private let client: HTTPClient
-    private let url : URL
-    
-    init(url: URL, client: HTTPClient) {
-        self.client = client
-        self.url = url
-    }
-    
-    func loadImages(completion: @escaping (ImageLoader.Result) -> Void) {
-        
-        client.get(form: url) { result in
-            switch result {
-            case .success( let data):
-                do {
-                    let items = try self.feed(from: data)
-                    completion(items)
-                } catch {
-                    completion(.failure(Error.invalidData))
-                }
-            case .failure:
-                completion(.failure(Error.connectivity))
-            }
-        }
-    }
-    
-    func feed(from data: Data) throws -> ImageLoader.Result {
-        if let feed = try? JSONDecoder().decode(Root.self, from: data) {
-            return .success(feed)
-        }
-        
-        return .failure(Error.invalidData)
-    }
-}
 
 class MockHTTPClient: HTTPClient {
     var completion: ((HTTPClientResult) -> Void)?
