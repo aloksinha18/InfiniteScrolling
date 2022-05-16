@@ -9,11 +9,18 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class ImageFeedCollectionViewController: UICollectionViewController {
-
+    
+    var refreshController: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.translatesAutoresizingMaskIntoConstraints = false
+        return refreshControl
+    }()
+    
     var viewModel: FeedImageViewModel!
     
     var cellControllers = [CellController]() {
         didSet {
+            refreshController.endRefreshing()
             collectionView.reloadData()
         }
     }
@@ -26,6 +33,8 @@ class ImageFeedCollectionViewController: UICollectionViewController {
         // Do any additional setup after loading the view.
         setupCollectionView()
         viewModel.load()
+        collectionView.refreshControl = refreshController
+        refreshController.beginRefreshing()
     }
     
     func configure(viewModel: FeedImageViewModel) {
