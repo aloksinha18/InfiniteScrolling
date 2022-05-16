@@ -26,7 +26,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let imageLoader = RemoteFeedImageDataLoader(client: client)
         let controller = ImageFeedCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
         window?.rootViewController = controller
-        controller.configure(viewModel: FeedImageViewModel(feedLoader: remoteFeedLoader, imageLoader: imageLoader))
+        let viewModel = FeedImageViewModel(feedLoader: remoteFeedLoader, imageLoader: imageLoader)
+        controller.configure(viewModel: viewModel)
+        
+        viewModel.onFeedLoad = {  _ in
+            DispatchQueue.main.async {
+                controller.cellControllers = [CellController(imageLoader: imageLoader)]
+            }
+        }
         window?.makeKeyAndVisible()
     }
 
