@@ -70,7 +70,6 @@ class ImageFeedCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = cellControllers[indexPath.row].view(for: collectionView, indexpath: indexPath)
         // Configure the cell
-        cell.contentView.backgroundColor = .red
         return cell
     }
 

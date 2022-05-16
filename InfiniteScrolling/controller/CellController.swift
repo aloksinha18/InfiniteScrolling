@@ -22,7 +22,9 @@ class CellController {
     
     func view(for collectionView: UICollectionView, indexpath: IndexPath) -> ImageCollectionViewCell {
         let collectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexpath) as! ImageCollectionViewCell
+        collectionViewCell.activityView.startAnimating()
         imageLoader.loadImageData(from: Endpoint.image(feedImage.id).url!) { result in
+            collectionViewCell.activityView.stopAnimating()
             if let imageData = try? result.get() {
                 collectionViewCell.iconImageView.image = UIImage(data: imageData)
             }
