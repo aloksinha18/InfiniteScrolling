@@ -20,7 +20,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
-        window?.rootViewController = ImageFeedCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        let client = URLSessionHTTPClient(session: URLSession.shared)
+        
+        let remoteFeedLoader = RemoteFeedLoader(url: URL(string: "https://picsum.photos/v2/list")!, client: client)
+        let imageLoader = RemoteFeedImageDataLoader(client: client)
+        let controller = ImageFeedCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        window?.rootViewController = controller
+        controller.configure(viewModel: FeedImageViewModel(feedLoader: remoteFeedLoader, imageLoader: imageLoader))
         window?.makeKeyAndVisible()
     }
 

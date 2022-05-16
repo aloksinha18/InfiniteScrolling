@@ -7,10 +7,35 @@
 
 import UIKit
 
+class FeedImageViewModel {
+    
+    private let feedLoader: ImageLoader
+    private let imageLoader: FeedImageDataLoader
+    
+    var onFeedLoad: (([FeedImage]) -> Void )?
+    
+    init(feedLoader: ImageLoader,
+         imageLoader: FeedImageDataLoader) {
+        self.feedLoader = feedLoader
+        self.imageLoader = imageLoader
+    }
+    
+    func load() {
+        
+        feedLoader.loadImages { [weak self] result in
+            if let feeds = try? result.get() {
+                self?.onFeedLoad?(feeds)
+            }
+        }
+    }
+}
+
 private let reuseIdentifier = "Cell"
 
 class ImageFeedCollectionViewController: UICollectionViewController {
 
+    var viewModel: FeedImageViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +43,11 @@ class ImageFeedCollectionViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
         // Do any additional setup after loading the view.
         setupCollectionView()
+        viewModel.load()
+    }
+    
+    func configure(viewModel: FeedImageViewModel) {
+        self.viewModel = viewModel
     }
     
     private func setupCollectionView() {
