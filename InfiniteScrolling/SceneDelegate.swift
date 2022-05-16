@@ -22,16 +22,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let client = URLSessionHTTPClient(session: URLSession.shared)
         
-        let remoteFeedLoader = RemoteFeedLoader(url: URL(string: "https://picsum.photos/v2/list")!, client: client)
+        let remoteFeedLoader = RemoteFeedLoader(url: Endpoint.list.url!, client: client)
         let imageLoader = RemoteFeedImageDataLoader(client: client)
         let controller = ImageFeedCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
         window?.rootViewController = controller
         let viewModel = FeedImageViewModel(feedLoader: remoteFeedLoader, imageLoader: imageLoader)
         controller.configure(viewModel: viewModel)
         
-        viewModel.onFeedLoad = {  _ in
+        viewModel.onFeedLoad = { feed in
             DispatchQueue.main.async {
-                controller.cellControllers = [CellController(imageLoader: imageLoader)]
+                controller.cellControllers = feed.map {CellController(feedImage: $0, imageLoader: imageLoader) }
             }
         }
         window?.makeKeyAndVisible()

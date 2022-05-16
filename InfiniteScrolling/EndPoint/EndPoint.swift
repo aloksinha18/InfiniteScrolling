@@ -26,7 +26,7 @@ enum Endpoint {
         case .list:
             return "/v2/list"
         case .image(let id):
-            return "\(id)/200/300"
+            return "/id/\(id)/200/300"
         }
     }
 }

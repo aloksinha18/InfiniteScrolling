@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 class ImageCollectionViewCell: UICollectionViewCell {
     
     var iconImageView: UIImageView = {

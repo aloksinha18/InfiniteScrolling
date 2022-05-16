@@ -29,7 +29,9 @@ final class RemoteFeedImageDataLoader: FeedImageDataLoader {
                 
             case .success( let data ):
                 if  !data.isEmpty {
-                    completion(.success(data))
+                    DispatchQueue.main.async {
+                        completion(.success(data))
+                    }
                 } else {
                     completion(.failure(Error.invalidData))
                 }
