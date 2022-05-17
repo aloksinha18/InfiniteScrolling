@@ -10,16 +10,13 @@ import Foundation
 class FeedImageViewModel {
     
     private let feedLoader: ImageLoader
-    private let imageLoader: FeedImageDataLoader
     private var isLoading = false
     private var currentPage = 0
     
     var onFeedLoad: (([FeedImage]) -> Void )?
     
-    init(feedLoader: ImageLoader,
-         imageLoader: FeedImageDataLoader) {
+    init(feedLoader: ImageLoader) {
         self.feedLoader = feedLoader
-        self.imageLoader = imageLoader
     }
     
     func load() {
@@ -27,6 +24,7 @@ class FeedImageViewModel {
         
         isLoading = true
         currentPage += 1
+        
         print(Endpoint.list(currentPage).url!)
         feedLoader.loadImages(url: Endpoint.list(currentPage).url!) { [weak self] result in
             if let feeds = try? result.get() {

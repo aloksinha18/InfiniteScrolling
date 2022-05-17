@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let imageLoader = RemoteFeedImageDataLoader(client: client)
         let controller = ImageFeedCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
         window?.rootViewController = controller
-        let viewModel = FeedImageViewModel(feedLoader: remoteFeedLoader, imageLoader: imageLoader)
+        let viewModel = FeedImageViewModel(feedLoader: remoteFeedLoader)
         controller.configure(viewModel: viewModel)
         
         viewModel.onFeedLoad = { feed in
