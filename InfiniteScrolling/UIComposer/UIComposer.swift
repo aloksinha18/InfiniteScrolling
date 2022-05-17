@@ -25,7 +25,7 @@ class UIComposer {
         return UINavigationController(rootViewController: controller)
     }
     
-    private func mapToCellController(feed: [FeedImage], on viewController: ImageFeedCollectionViewController, imageDataLoader: FeedImageDataLoader) {
+    private func mapToCellController(feed: [Feed], on viewController: ImageFeedCollectionViewController, imageDataLoader: FeedImageDataLoader) {
         DispatchQueue.main.async {
             viewController.cellControllers += feed.map { CellController(feedImage: $0, imageDataLoader: imageDataLoader) }
         }
@@ -33,7 +33,7 @@ class UIComposer {
 }
 
 extension UIComposer: ImageFeedCollectionViewControllerDelegate {
-    func didSelect(feed: FeedImage, on viewController: ImageFeedCollectionViewController) {
+    func didSelect(feed: Feed, on viewController: ImageFeedCollectionViewController) {
         let client = URLSessionHTTPClient(session: URLSession.shared)
         let imageLoader = RemoteFeedImageDataLoader(client: client)
         

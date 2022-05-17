@@ -123,17 +123,17 @@
 			children = (
 				16602F522832D78A00202771 /* FeedImageViewModel.swift */,
 				16523F8C2833F6B100E9DF68 /* DetailViewModel.swift */,
-				16E98EDB28310E050074CC4B /* ImageLoader */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		16602F562832F07300202771 /* controller */ = {
+		16602F562832F07300202771 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				16E98EDB28310E050074CC4B /* ImageLoader */,
 				16602F572832F09000202771 /* CellController.swift */,
 			);
-			path = controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		16602F592832F6D600202771 /* EndPoint */ = {
@@ -180,7 +180,7 @@
 				16523F9128345F6C00E9DF68 /* Model */,
 				16523F8E28345DD800E9DF68 /* UIComposer */,
 				16602F592832F6D600202771 /* EndPoint */,
-				16602F562832F07300202771 /* controller */,
+				16602F562832F07300202771 /* Controller */,
 				16602F512832D77A00202771 /* ViewModel */,
 				16BF98E72831A5A400CBA22D /* View */,
 				16E98EAB2830F6610074CC4B /* AppDelegate.swift */,

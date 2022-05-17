@@ -13,7 +13,7 @@ class FeedImageViewModel {
     private var isLoading = false
     private var currentPage = 0
     
-    var onFeedLoad: (([FeedImage]) -> Void )?
+    var onFeedLoad: (([Feed]) -> Void )?
     
     init(feedLoader: FeedLoader) {
         self.feedLoader = feedLoader

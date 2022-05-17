@@ -9,7 +9,7 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 protocol ImageFeedCollectionViewControllerDelegate: AnyObject {
-    func didSelect(feed: FeedImage, on viewController: ImageFeedCollectionViewController)
+    func didSelect(feed: Feed, on viewController: ImageFeedCollectionViewController)
 }
 
 class ImageFeedCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {

@@ -13,9 +13,9 @@ private let reuseIdentifier = "Cell"
 class CellController {
     
     private let imageDataLoader: FeedImageDataLoader
-    private let feedImage: FeedImage
+    private let feedImage: Feed
     
-    init(feedImage: FeedImage, imageDataLoader: FeedImageDataLoader) {
+    init(feedImage: Feed, imageDataLoader: FeedImageDataLoader) {
         self.feedImage = feedImage
         self.imageDataLoader = imageDataLoader
     }
@@ -30,7 +30,7 @@ class CellController {
         return collectionViewCell
     }
     
-    var feed: FeedImage {
+    var feed: Feed {
         return self.feedImage
     }
     

@@ -7,10 +7,10 @@
 
 import Foundation
 
-typealias Root = [FeedImage]
+typealias Root = [Feed]
 
 protocol FeedLoader {
-    typealias Result = Swift.Result<[FeedImage] , Error>
+    typealias Result = Swift.Result<[Feed] , Error>
     func loadImages(url: URL, completion: @escaping (FeedLoader.Result) -> Void)
 }
 

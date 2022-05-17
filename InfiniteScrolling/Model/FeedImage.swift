@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FeedImage: Equatable, Codable {
+struct Feed: Equatable, Codable {
     let id, author: String
     let width, height: Int
     let url, downloadURL: String
