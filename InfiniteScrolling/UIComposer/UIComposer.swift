@@ -11,7 +11,7 @@ import UIKit
 class UIComposer {
     private var viewController: ImageFeedCollectionViewController?
 
-    func feedViewcontroller(feedLoader: ImageLoader, imageLoader: FeedImageDataLoader) -> UIViewController {
+    func feedViewcontroller(feedLoader: FeedLoader, imageLoader: FeedImageDataLoader) -> UIViewController {
         let client = URLSessionHTTPClient(session: URLSession.shared)
         let imageDataLoader = RemoteFeedImageDataLoader(client: client)
         let remoteFeedLoader = RemoteFeedLoader(client: client)

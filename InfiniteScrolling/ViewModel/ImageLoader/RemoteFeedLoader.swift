@@ -8,7 +8,7 @@
 import Foundation
 
 
-class RemoteFeedLoader: ImageLoader {
+class RemoteFeedLoader: FeedLoader {
     
     enum Error: Swift.Error {
         case connectivity
@@ -21,7 +21,7 @@ class RemoteFeedLoader: ImageLoader {
         self.client = client
     }
     
-    func loadImages(url: URL, completion: @escaping (ImageLoader.Result) -> Void) {
+    func loadImages(url: URL, completion: @escaping (FeedLoader.Result) -> Void) {
         
         client.get(form: url) { result in
             switch result {
@@ -38,7 +38,7 @@ class RemoteFeedLoader: ImageLoader {
         }
     }
     
-    func feed(from data: Data) throws -> ImageLoader.Result {
+    func feed(from data: Data) throws -> FeedLoader.Result {
         if let feed = try? JSONDecoder().decode(Root.self, from: data) {
             return .success(feed)
         }
