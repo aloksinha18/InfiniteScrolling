@@ -22,18 +22,26 @@ class CellController {
     
     func view(for collectionView: UICollectionView, indexpath: IndexPath) -> ImageCollectionViewCell {
         let collectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexpath) as! ImageCollectionViewCell
-        collectionViewCell.activityView.startAnimating()
-        imageDataLoader.loadImageData(from: Endpoint.image(feedImage.id).url!) { result in
-            collectionViewCell.activityView.stopAnimating()
-            if let imageData = try? result.get() {
-                collectionViewCell.iconImageView.image = UIImage(data: imageData)
-            }
+        
+        if let url = Endpoint.image(feedImage.id).url {
+           loadImage(url: url, imageDataLoader: imageDataLoader, for: collectionViewCell)
         }
+        
         return collectionViewCell
     }
     
     var feed: FeedImage {
         return self.feedImage
+    }
+    
+    private func loadImage(url: URL, imageDataLoader: FeedImageDataLoader, for cell: ImageCollectionViewCell) {
+        cell.activityView.startAnimating()
+        imageDataLoader.loadImageData(from: Endpoint.image(feedImage.id).url!) { result in
+            cell.activityView.stopAnimating()
+            if let imageData = try? result.get() {
+                cell.iconImageView.image = UIImage(data: imageData)
+            }
+        }
     }
 }
 
