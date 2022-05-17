@@ -8,9 +8,14 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
+protocol ImageFeedCollectionViewControllerDelegate: AnyObject {
+    func didSelect(feed: FeedImage, on viewController: ImageFeedCollectionViewController)
+}
+
 class ImageFeedCollectionViewController: UICollectionViewController {
     
     var viewModel: FeedImageViewModel!
+    weak var delegate: ImageFeedCollectionViewControllerDelegate?
     
     var cellControllers = [CellController]() {
         didSet {
@@ -82,8 +87,8 @@ extension ImageFeedCollectionViewController: UICollectionViewDelegateFlowLayout 
             viewModel.load()
         }
     }
-    
+
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
+        delegate?.didSelect(feed: cellControllers[indexPath.row].feed, on: self)
     }
 }

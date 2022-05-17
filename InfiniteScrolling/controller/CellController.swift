@@ -31,5 +31,9 @@ class CellController {
         }
         return collectionViewCell
     }
+    
+    var feed: FeedImage {
+        return self.feedImage
+    }
 }
 

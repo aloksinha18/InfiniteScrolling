@@ -26,13 +26,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let remoteFeedLoader = RemoteFeedLoader(client: client)
         let imageLoader = RemoteFeedImageDataLoader(client: client)
         let controller = ImageFeedCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        controller.delegate = self
         window?.rootViewController = controller
         let viewModel = FeedImageViewModel(feedLoader: remoteFeedLoader)
         controller.configure(viewModel: viewModel)
         
         viewModel.onFeedLoad = { feed in
             
-            feed.map { print($0.id) }
+            //feed.map { print($0.id) }
             DispatchQueue.main.async {
                 controller.cellControllers += feed.map { CellController(feedImage: $0, imageLoader: imageLoader) }
             }
@@ -67,7 +68,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
+}
 
-
+extension SceneDelegate: ImageFeedCollectionViewControllerDelegate {
+    func didSelect(feed: FeedImage, on viewController: ImageFeedCollectionViewController) {
+        let client = URLSessionHTTPClient(session: URLSession.shared)
+        let imageLoader = RemoteFeedImageDataLoader(client: client)
+        
+        let viewMiodel = DetailViewModel(feed: feed, imageLoader: imageLoader)
+        let detailController = DetailViewController(viewModel: viewMiodel)
+        viewController.show(detailController, sender: nil)
+    }
 }
 
