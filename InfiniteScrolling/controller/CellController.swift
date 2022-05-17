@@ -12,18 +12,18 @@ private let reuseIdentifier = "Cell"
 
 class CellController {
     
-    private let imageLoader: FeedImageDataLoader
+    private let imageDataLoader: FeedImageDataLoader
     private let feedImage: FeedImage
     
-    init(feedImage: FeedImage, imageLoader: FeedImageDataLoader) {
+    init(feedImage: FeedImage, imageDataLoader: FeedImageDataLoader) {
         self.feedImage = feedImage
-        self.imageLoader = imageLoader
+        self.imageDataLoader = imageDataLoader
     }
     
     func view(for collectionView: UICollectionView, indexpath: IndexPath) -> ImageCollectionViewCell {
         let collectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexpath) as! ImageCollectionViewCell
         collectionViewCell.activityView.startAnimating()
-        imageLoader.loadImageData(from: Endpoint.image(feedImage.id).url!) { result in
+        imageDataLoader.loadImageData(from: Endpoint.image(feedImage.id).url!) { result in
             collectionViewCell.activityView.stopAnimating()
             if let imageData = try? result.get() {
                 collectionViewCell.iconImageView.image = UIImage(data: imageData)

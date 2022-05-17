@@ -10,8 +10,8 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
-
+    private var composer = UIComposer()
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
@@ -22,22 +22,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         
         let client = URLSessionHTTPClient(session: URLSession.shared)
-        
         let remoteFeedLoader = RemoteFeedLoader(client: client)
-        let imageLoader = RemoteFeedImageDataLoader(client: client)
-        let controller = ImageFeedCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
-        controller.delegate = self
-        window?.rootViewController = controller
-        let viewModel = FeedImageViewModel(feedLoader: remoteFeedLoader)
-        controller.configure(viewModel: viewModel)
+        let imageDataLoader = RemoteFeedImageDataLoader(client: client)
         
-        viewModel.onFeedLoad = { feed in
-            
-            //feed.map { print($0.id) }
-            DispatchQueue.main.async {
-                controller.cellControllers += feed.map { CellController(feedImage: $0, imageLoader: imageLoader) }
-            }
-        }
+        let controller = composer.feedViewcontroller(feedLoader: remoteFeedLoader, imageLoader: imageDataLoader)
+
+        window?.backgroundColor = .white
+        window?.rootViewController = controller
         window?.makeKeyAndVisible()
     }
 
@@ -69,15 +60,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 }
-
-extension SceneDelegate: ImageFeedCollectionViewControllerDelegate {
-    func didSelect(feed: FeedImage, on viewController: ImageFeedCollectionViewController) {
-        let client = URLSessionHTTPClient(session: URLSession.shared)
-        let imageLoader = RemoteFeedImageDataLoader(client: client)
-        
-        let viewMiodel = DetailViewModel(feed: feed, imageLoader: imageLoader)
-        let detailController = DetailViewController(viewModel: viewMiodel)
-        viewController.show(detailController, sender: nil)
-    }
-}
-

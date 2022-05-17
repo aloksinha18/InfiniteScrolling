@@ -65,7 +65,7 @@ class DetailViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             
-            segmentControl.topAnchor.constraint(equalTo: view.topAnchor, constant: 5),
+            segmentControl.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             segmentControl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             segmentControl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             segmentControl.heightAnchor.constraint(equalToConstant: 50.0),
@@ -74,7 +74,6 @@ class DetailViewController: UIViewController {
             imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
             imageView.topAnchor.constraint(equalTo: segmentControl.bottomAnchor, constant: 5),
             imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
-            //imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16),
             imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 1.5),
 
             activityView.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
