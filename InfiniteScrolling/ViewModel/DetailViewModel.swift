@@ -44,6 +44,18 @@ class DetailViewModel {
     }
     
     var authorName: String {
-        return feed.author
+        return "Author: \(feed.author)"
+    }
+    
+    var dimensions: String {
+        return "Height: \(feed.height) Width: \(feed.width)"
+    }
+    
+    var url: String {
+        return "URL: \(feed.url)"
+    }
+    
+    var downloadURL: String {
+        return "Download URL: \(feed.downloadURL)"
     }
 }

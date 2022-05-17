@@ -29,7 +29,32 @@ class DetailViewController: UIViewController {
     private var authorLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
         label.textAlignment = .left
+        return label
+    }()
+    
+    private var dimensionsInfoLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .left
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    private var urlLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .left
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    private var downloadURLLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .left
+        label.numberOfLines = 0
         return label
     }()
     
@@ -60,6 +85,9 @@ class DetailViewController: UIViewController {
         self.view.addSubview(segmentControl)
         self.view.addSubview(imageView)
         self.view.addSubview(authorLabel)
+        self.view.addSubview(dimensionsInfoLabel)
+        self.view.addSubview(urlLabel)
+        self.view.addSubview(downloadURLLabel)
 
         self.imageView.addSubview(activityView)
         
@@ -80,12 +108,27 @@ class DetailViewController: UIViewController {
             activityView.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
             
             authorLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor),
-            authorLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Layout.authorLabelLeading),
+            authorLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Layout.labelLeading),
             authorLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+
+            dimensionsInfoLabel.topAnchor.constraint(equalTo: authorLabel.bottomAnchor),
+            dimensionsInfoLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Layout.labelLeading),
+            dimensionsInfoLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+
+            urlLabel.topAnchor.constraint(equalTo: dimensionsInfoLabel.bottomAnchor),
+            urlLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            urlLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Layout.labelLeading),
+            
+            downloadURLLabel.topAnchor.constraint(equalTo: urlLabel.bottomAnchor),
+            downloadURLLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Layout.labelLeading),
+            downloadURLLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
         
         segmentControl.addTarget(self, action: #selector(self.segmentedValueChanged(_:)), for: .valueChanged)
-        self.authorLabel.text = "Author: \(viewModel.authorName)"
+        authorLabel.text = viewModel.authorName
+        dimensionsInfoLabel.text = viewModel.dimensions
+        urlLabel.text = viewModel.url
+        downloadURLLabel.text = viewModel.downloadURL
         fetchBlurImage()
     }
     
@@ -121,7 +164,7 @@ class DetailViewController: UIViewController {
 
 extension DetailViewController {
     private enum Layout {
-        static let segmentControlTop : CGFloat = 75.0
+        static let segmentControlTop : CGFloat = 100.0
         static let segmentControlLeading : CGFloat = 8.0
         static let segmentControlTrailing : CGFloat = -8.0
         static let segmentControlHeight : CGFloat = 50.0
@@ -129,8 +172,8 @@ extension DetailViewController {
         static let imageViewTop : CGFloat = 8.0
         static let imageViewLeading : CGFloat = 8.0
         static let imageViewTrailing : CGFloat = -8.0
-        static let imageViewHeightMultiplier : CGFloat = 1.5
+        static let imageViewHeightMultiplier : CGFloat = 1.3
         
-        static let authorLabelLeading: CGFloat = 8.0
+        static let labelLeading: CGFloat = 8.0
     }
 }

@@ -130,7 +130,6 @@
 		16602F562832F07300202771 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				16E98EDB28310E050074CC4B /* ImageLoader */,
 				16602F572832F09000202771 /* CellController.swift */,
 			);
 			path = Controller;
@@ -177,6 +176,7 @@
 		16E98EAA2830F6610074CC4B /* InfiniteScrolling */ = {
 			isa = PBXGroup;
 			children = (
+				16E98EDB28310E050074CC4B /* FeedLoader */,
 				16523F9128345F6C00E9DF68 /* Model */,
 				16523F8E28345DD800E9DF68 /* UIComposer */,
 				16602F592832F6D600202771 /* EndPoint */,
@@ -210,15 +210,15 @@
 			path = InfiniteScrollingUITests;
 			sourceTree = "<group>";
 		};
-		16E98EDB28310E050074CC4B /* ImageLoader */ = {
+		16E98EDB28310E050074CC4B /* FeedLoader */ = {
 			isa = PBXGroup;
 			children = (
 				16E98EDC28310E2F0074CC4B /* FeedLoader.swift */,
 				16BF98DF28313FC900CBA22D /* RemoteFeedLoader.swift */,
-				16BF98E128313FE800CBA22D /* HTTPClient.swift */,
 				16BF98E52831A50800CBA22D /* RemoteFeedImageDataLoader.swift */,
+				16BF98E128313FE800CBA22D /* HTTPClient.swift */,
 			);
-			path = ImageLoader;
+			path = FeedLoader;
 			sourceTree = "<group>";
 		};
 		16E98EDE283111320074CC4B /* ImageLoader */ = {
