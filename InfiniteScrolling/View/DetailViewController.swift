@@ -86,13 +86,13 @@ class DetailViewController: UIViewController {
         
         segmentControl.addTarget(self, action: #selector(self.segmentedValueChanged(_:)), for: .valueChanged)
         self.authorLabel.text = "Author: \(viewModel.authorName)"
-        fetchBlurrImage()
+        fetchBlurImage()
     }
     
     @objc func segmentedValueChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            fetchBlurrImage()
+            fetchBlurImage()
         case 1:
             fetchGreyScaleImage()
         default:
@@ -100,10 +100,10 @@ class DetailViewController: UIViewController {
         }
     }
     
-    private func fetchBlurrImage() {
+    private func fetchBlurImage() {
         imageView.image = nil
         activityView.startAnimating()
-        viewModel.loadBlurrImage { image in
+        viewModel.loadBlurImage { image in
             self.imageView.image  = image
             self.activityView.stopAnimating()
         }

@@ -17,9 +17,9 @@ class DetailViewModel {
         self.feed = feed
     }
     
-    func loadBlurrImage(completion: @escaping (UIImage) -> Void) {
-        print(Endpoint.blurrImage(feed.id).url!)
-        imageLoader.loadImageData(from: Endpoint.blurrImage(feed.id).url!) { result in
+    func loadBlurImage(completion: @escaping (UIImage) -> Void) {
+        print(Endpoint.blurImage(feed.id).url!)
+        imageLoader.loadImageData(from: Endpoint.blurImage(feed.id).url!) { result in
             if let image = try? result.get() {
                completion(UIImage(data: image)!)
             }

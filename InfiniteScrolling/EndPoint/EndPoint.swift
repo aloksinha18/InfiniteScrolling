@@ -11,7 +11,7 @@ enum Endpoint {
     
     case list(_ page: Int)
     case image(_ id: String)
-    case blurrImage(_ id: String)
+    case blurImage(_ id: String)
     case grayScale(_ id: String)
 
     
@@ -31,7 +31,7 @@ enum Endpoint {
             return "/v2/list"
         case .image(let id):
             return "/id/\(id)/200/300"
-        case .blurrImage(let id), .grayScale(let id):
+        case .blurImage(let id), .grayScale(let id):
             return "/id/\(id)/600/800"
         }
     }
@@ -43,7 +43,7 @@ enum Endpoint {
         switch self {
         case .list(let page):
             queryItems.append(URLQueryItem(name: "page", value: String(page)))
-        case .blurrImage:
+        case .blurImage:
             queryItems.append(URLQueryItem(name: "blur", value: String(2)))
         case .grayScale:
             queryItems.append(URLQueryItem(name: "grayscale", value: String(2)))
