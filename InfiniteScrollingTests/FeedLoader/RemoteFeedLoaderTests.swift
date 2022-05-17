@@ -25,16 +25,16 @@ final class RemoteFeedLoaderTests: XCTestCase {
     
     func testSuccesfulAPIResponse() {
         let client  = MockHTTPClient()
-        let sut = RemoteFeedLoader(url: anyURL(), client: client)
+        let sut = RemoteFeedLoader(client: client)
         
         let dataString = """
                             [{"id":"0","author":"Alejandro Escamilla","width":5616,"height":3744,"url":"https://unsplash.com/photos/yC-Yzbqy7PY","download_url":"https://picsum.photos/id/0/5616/3744"}]
                          """
-        let expectedFeed = [FeedImage(id: "0", author: "Alejandro Escamilla", width: 5616, height: 3744, url: "https://unsplash.com/photos/yC-Yzbqy7PY", downloadURL: "https://picsum.photos/id/0/5616/3744")]
+        let expectedFeed = [Feed(id: "0", author: "Alejandro Escamilla", width: 5616, height: 3744, url: "https://unsplash.com/photos/yC-Yzbqy7PY", downloadURL: "https://picsum.photos/id/0/5616/3744")]
         
         let expectation = expectation(description: "wait for images to load")
         
-        sut.loadImages { result in
+        sut.loadImages(url: anyURL()) { result in
             switch result {
             case .success(let feed):
                 
@@ -51,7 +51,7 @@ final class RemoteFeedLoaderTests: XCTestCase {
     
     func testInvalidResponse() {
         let client  = MockHTTPClient()
-        let sut = RemoteFeedLoader(url: anyURL(), client: client)
+        let sut = RemoteFeedLoader(client: client)
         
         let dataString = """
                             [{"id":"0","authors":"Alejandro Escamilla","width":5616,"height":3744,"url":"https://unsplash.com/photos/yC-Yzbqy7PY","download_url":"https://picsum.photos/id/0/5616/3744"}]
@@ -59,7 +59,7 @@ final class RemoteFeedLoaderTests: XCTestCase {
         
         let expectation = expectation(description: "wait for images to load")
         
-        sut.loadImages { result in
+        sut.loadImages(url: anyURL()) { result in
             switch result {
             case .failure(let error as RemoteFeedLoader.Error):
                 XCTAssertEqual(error, RemoteFeedLoader.Error.invalidData)
@@ -75,14 +75,14 @@ final class RemoteFeedLoaderTests: XCTestCase {
     
     func testEmptyResponse() {
         let client  = MockHTTPClient()
-        let sut = RemoteFeedLoader(url: anyURL(), client: client)
+        let sut = RemoteFeedLoader(client: client)
         
         let dataString = """
                             []
                          """
         let expectation = expectation(description: "wait for images to load")
         
-        sut.loadImages { result in
+        sut.loadImages(url: anyURL()) { result in
             switch result {
             case .success(let feed):
                 XCTAssertTrue(feed.isEmpty)
