@@ -38,13 +38,23 @@ class ImageCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(imageView)
         imageView.addSubview(activityView)
         NSLayoutConstraint.activate([
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Layout.leading),
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Layout.top),
+            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: Layout.trailing),
+            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: Layout.bottom),
             
             activityView.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
             activityView.centerYAnchor.constraint(equalTo: imageView.centerYAnchor)
         ])
+    }
+}
+
+extension ImageCollectionViewCell {
+    private enum Layout {
+        static let leading: CGFloat = 8.0
+        static let trailing: CGFloat = 8.0
+        static let top: CGFloat = 8.0
+        static let bottom: CGFloat = 8.0
+
     }
 }

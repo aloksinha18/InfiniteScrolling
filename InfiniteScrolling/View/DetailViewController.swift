@@ -65,22 +65,22 @@ class DetailViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             
-            segmentControl.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-            segmentControl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            segmentControl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            segmentControl.heightAnchor.constraint(equalToConstant: 50.0),
+            segmentControl.topAnchor.constraint(equalTo: view.topAnchor, constant: Layout.segmentControlTop),
+            segmentControl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Layout.segmentControlLeading),
+            segmentControl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: Layout.segmentControlTrailing),
+            segmentControl.heightAnchor.constraint(equalToConstant: Layout.segmentControlHeight),
 
             
-            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
-            imageView.topAnchor.constraint(equalTo: segmentControl.bottomAnchor, constant: 5),
-            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
-            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 1.5),
+            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Layout.imageViewLeading),
+            imageView.topAnchor.constraint(equalTo: segmentControl.bottomAnchor, constant: Layout.imageViewTop),
+            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: Layout.imageViewTrailing),
+            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: Layout.imageViewHeightMultiplier),
 
             activityView.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
             activityView.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
             
             authorLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor),
-            authorLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            authorLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Layout.authorLabelLeading),
             authorLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
         
@@ -116,5 +116,21 @@ class DetailViewController: UIViewController {
             self.imageView.image  = image
             self.activityView.stopAnimating()
         }
+    }
+}
+
+extension DetailViewController {
+    private enum Layout {
+        static let segmentControlTop : CGFloat = 75.0
+        static let segmentControlLeading : CGFloat = 8.0
+        static let segmentControlTrailing : CGFloat = -8.0
+        static let segmentControlHeight : CGFloat = 50.0
+        
+        static let imageViewTop : CGFloat = 8.0
+        static let imageViewLeading : CGFloat = 8.0
+        static let imageViewTrailing : CGFloat = -8.0
+        static let imageViewHeightMultiplier : CGFloat = 1.5
+        
+        static let authorLabelLeading: CGFloat = 8.0
     }
 }
