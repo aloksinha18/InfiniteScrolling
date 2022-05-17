@@ -96,7 +96,7 @@ class DetailViewController: UIViewController {
         case 1:
             fetchGreyScaleImage()
         default:
-            fatalError("There are only two cases defined")
+            fatalError("There are only two cases defined, Please check segment control")
         }
     }
     

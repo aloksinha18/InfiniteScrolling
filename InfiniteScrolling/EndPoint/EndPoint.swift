@@ -44,13 +44,21 @@ enum Endpoint {
         case .list(let page):
             queryItems.append(URLQueryItem(name: "page", value: String(page)))
         case .blurImage:
-            queryItems.append(URLQueryItem(name: "blur", value: String(2)))
+            queryItems.append(URLQueryItem(name: "blur", value: Constants.blurValue))
         case .grayScale:
-            queryItems.append(URLQueryItem(name: "grayscale", value: String(2)))
+            queryItems.append(URLQueryItem(name: "grayscale", value: Constants.grayscaleValue))
         default:
             break
         }
         
         return queryItems
+    }
+}
+
+
+extension Endpoint {
+    private enum Constants {
+        static let blurValue: String = "2"
+        static let grayscaleValue: String = "2"
     }
 }
