@@ -10,7 +10,7 @@ import UIKit
 
 class ImageCollectionViewCell: UICollectionViewCell {
     
-    var iconImageView: UIImageView = {
+    var imageView: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleToFill
@@ -35,16 +35,16 @@ class ImageCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupViews() {
-        contentView.addSubview(iconImageView)
-        iconImageView.addSubview(activityView)
+        contentView.addSubview(imageView)
+        imageView.addSubview(activityView)
         NSLayoutConstraint.activate([
-            iconImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            iconImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            iconImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            iconImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
             
-            activityView.centerXAnchor.constraint(equalTo: iconImageView.centerXAnchor),
-            activityView.centerYAnchor.constraint(equalTo: iconImageView.centerYAnchor)
+            activityView.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
+            activityView.centerYAnchor.constraint(equalTo: imageView.centerYAnchor)
         ])
     }
 }

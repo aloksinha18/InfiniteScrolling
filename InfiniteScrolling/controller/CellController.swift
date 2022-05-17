@@ -39,7 +39,7 @@ class CellController {
         imageDataLoader.loadImageData(from: Endpoint.image(feedImage.id).url!) { result in
             cell.activityView.stopAnimating()
             if let imageData = try? result.get() {
-                cell.iconImageView.image = UIImage(data: imageData)
+                cell.imageView.image = UIImage(data: imageData)
             }
         }
     }
