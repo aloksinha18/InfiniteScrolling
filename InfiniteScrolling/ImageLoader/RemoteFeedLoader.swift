@@ -16,14 +16,12 @@ class RemoteFeedLoader: ImageLoader {
     }
     
     private let client: HTTPClient
-    private let url : URL
     
-    init(url: URL, client: HTTPClient) {
+    init(client: HTTPClient) {
         self.client = client
-        self.url = url
     }
     
-    func loadImages(completion: @escaping (ImageLoader.Result) -> Void) {
+    func loadImages(url: URL, completion: @escaping (ImageLoader.Result) -> Void) {
         
         client.get(form: url) { result in
             switch result {

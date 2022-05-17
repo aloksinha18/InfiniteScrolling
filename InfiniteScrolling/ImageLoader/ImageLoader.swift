@@ -22,7 +22,7 @@ typealias Root = [FeedImage]
 
 protocol ImageLoader {
     typealias Result = Swift.Result<[FeedImage] , Error>
-    func loadImages(completion: @escaping (ImageLoader.Result) -> Void)
+    func loadImages(url: URL, completion: @escaping (ImageLoader.Result) -> Void)
 }
 
 

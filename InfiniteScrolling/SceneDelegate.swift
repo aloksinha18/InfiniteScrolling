@@ -17,12 +17,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
+        
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
         let client = URLSessionHTTPClient(session: URLSession.shared)
         
-        let remoteFeedLoader = RemoteFeedLoader(url: Endpoint.list.url!, client: client)
+        let remoteFeedLoader = RemoteFeedLoader(client: client)
         let imageLoader = RemoteFeedImageDataLoader(client: client)
         let controller = ImageFeedCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
         window?.rootViewController = controller
@@ -30,8 +31,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         controller.configure(viewModel: viewModel)
         
         viewModel.onFeedLoad = { feed in
+            
+            feed.map { print($0.id) }
             DispatchQueue.main.async {
-                controller.cellControllers = feed.map {CellController(feedImage: $0, imageLoader: imageLoader) }
+                controller.cellControllers += feed.map { CellController(feedImage: $0, imageLoader: imageLoader) }
             }
         }
         window?.makeKeyAndVisible()
