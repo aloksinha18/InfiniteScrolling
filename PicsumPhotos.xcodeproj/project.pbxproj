@@ -61,14 +61,14 @@
 		16BF98E32831A2F500CBA22D /* RemoteFeedImageDataLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedImageDataLoaderTests.swift; sourceTree = "<group>"; };
 		16BF98E52831A50800CBA22D /* RemoteFeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedImageDataLoader.swift; sourceTree = "<group>"; };
 		16BF98EA2831AB7000CBA22D /* ImageFeedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFeedCollectionViewController.swift; sourceTree = "<group>"; };
-		16E98EA82830F6610074CC4B /* InfiniteScrolling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InfiniteScrolling.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		16E98EA82830F6610074CC4B /* PicsumPhotos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicsumPhotos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16E98EAB2830F6610074CC4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16E98EAD2830F6610074CC4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		16E98EB42830F6630074CC4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		16E98EB72830F6630074CC4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		16E98EB92830F6630074CC4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		16E98EBE2830F6630074CC4B /* InfiniteScrollingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InfiniteScrollingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		16E98EC82830F6630074CC4B /* InfiniteScrollingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InfiniteScrollingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		16E98EB92830F6630074CC4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = PicsumPhotos/Info.plist; sourceTree = SOURCE_ROOT; };
+		16E98EBE2830F6630074CC4B /* PicsumPhotosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PicsumPhotosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		16E98EC82830F6630074CC4B /* PicsumPhotosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PicsumPhotosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		16E98ECC2830F6630074CC4B /* InfiniteScrollingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteScrollingUITests.swift; sourceTree = "<group>"; };
 		16E98ECE2830F6630074CC4B /* InfiniteScrollingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteScrollingUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		16E98EDC28310E2F0074CC4B /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
@@ -154,9 +154,9 @@
 		16E98E9F2830F6610074CC4B = {
 			isa = PBXGroup;
 			children = (
-				16E98EAA2830F6610074CC4B /* InfiniteScrolling */,
-				16E98EC12830F6630074CC4B /* InfiniteScrollingTests */,
-				16E98ECB2830F6630074CC4B /* InfiniteScrollingUITests */,
+				16E98EAA2830F6610074CC4B /* PicsumPhotos */,
+				16E98EC12830F6630074CC4B /* PicsumPhotosTests */,
+				16E98ECB2830F6630074CC4B /* PicsumPhotosUITests */,
 				16E98EA92830F6610074CC4B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -164,14 +164,14 @@
 		16E98EA92830F6610074CC4B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				16E98EA82830F6610074CC4B /* InfiniteScrolling.app */,
-				16E98EBE2830F6630074CC4B /* InfiniteScrollingTests.xctest */,
-				16E98EC82830F6630074CC4B /* InfiniteScrollingUITests.xctest */,
+				16E98EA82830F6610074CC4B /* PicsumPhotos.app */,
+				16E98EBE2830F6630074CC4B /* PicsumPhotosTests.xctest */,
+				16E98EC82830F6630074CC4B /* PicsumPhotosUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		16E98EAA2830F6610074CC4B /* InfiniteScrolling */ = {
+		16E98EAA2830F6610074CC4B /* PicsumPhotos */ = {
 			isa = PBXGroup;
 			children = (
 				16E98EDB28310E050074CC4B /* FeedLoader */,
@@ -187,24 +187,24 @@
 				16E98EB62830F6630074CC4B /* LaunchScreen.storyboard */,
 				16E98EB92830F6630074CC4B /* Info.plist */,
 			);
-			path = InfiniteScrolling;
+			path = PicsumPhotos;
 			sourceTree = "<group>";
 		};
-		16E98EC12830F6630074CC4B /* InfiniteScrollingTests */ = {
+		16E98EC12830F6630074CC4B /* PicsumPhotosTests */ = {
 			isa = PBXGroup;
 			children = (
 				16E98EDE283111320074CC4B /* FeedLoader */,
 			);
-			path = InfiniteScrollingTests;
+			path = PicsumPhotosTests;
 			sourceTree = "<group>";
 		};
-		16E98ECB2830F6630074CC4B /* InfiniteScrollingUITests */ = {
+		16E98ECB2830F6630074CC4B /* PicsumPhotosUITests */ = {
 			isa = PBXGroup;
 			children = (
 				16E98ECC2830F6630074CC4B /* InfiniteScrollingUITests.swift */,
 				16E98ECE2830F6630074CC4B /* InfiniteScrollingUITestsLaunchTests.swift */,
 			);
-			path = InfiniteScrollingUITests;
+			path = PicsumPhotosUITests;
 			sourceTree = "<group>";
 		};
 		16E98EDB28310E050074CC4B /* FeedLoader */ = {
@@ -230,9 +230,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		16E98EA72830F6610074CC4B /* InfiniteScrolling */ = {
+		16E98EA72830F6610074CC4B /* PicsumPhotos */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 16E98ED22830F6630074CC4B /* Build configuration list for PBXNativeTarget "InfiniteScrolling" */;
+			buildConfigurationList = 16E98ED22830F6630074CC4B /* Build configuration list for PBXNativeTarget "PicsumPhotos" */;
 			buildPhases = (
 				16E98EA42830F6610074CC4B /* Sources */,
 				16E98EA52830F6610074CC4B /* Frameworks */,
@@ -242,14 +242,14 @@
 			);
 			dependencies = (
 			);
-			name = InfiniteScrolling;
+			name = PicsumPhotos;
 			productName = InfiniteScrolling;
-			productReference = 16E98EA82830F6610074CC4B /* InfiniteScrolling.app */;
+			productReference = 16E98EA82830F6610074CC4B /* PicsumPhotos.app */;
 			productType = "com.apple.product-type.application";
 		};
-		16E98EBD2830F6630074CC4B /* InfiniteScrollingTests */ = {
+		16E98EBD2830F6630074CC4B /* PicsumPhotosTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 16E98ED52830F6630074CC4B /* Build configuration list for PBXNativeTarget "InfiniteScrollingTests" */;
+			buildConfigurationList = 16E98ED52830F6630074CC4B /* Build configuration list for PBXNativeTarget "PicsumPhotosTests" */;
 			buildPhases = (
 				16E98EBA2830F6630074CC4B /* Sources */,
 				16E98EBB2830F6630074CC4B /* Frameworks */,
@@ -260,14 +260,14 @@
 			dependencies = (
 				16E98EC02830F6630074CC4B /* PBXTargetDependency */,
 			);
-			name = InfiniteScrollingTests;
+			name = PicsumPhotosTests;
 			productName = InfiniteScrollingTests;
-			productReference = 16E98EBE2830F6630074CC4B /* InfiniteScrollingTests.xctest */;
+			productReference = 16E98EBE2830F6630074CC4B /* PicsumPhotosTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		16E98EC72830F6630074CC4B /* InfiniteScrollingUITests */ = {
+		16E98EC72830F6630074CC4B /* PicsumPhotosUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 16E98ED82830F6630074CC4B /* Build configuration list for PBXNativeTarget "InfiniteScrollingUITests" */;
+			buildConfigurationList = 16E98ED82830F6630074CC4B /* Build configuration list for PBXNativeTarget "PicsumPhotosUITests" */;
 			buildPhases = (
 				16E98EC42830F6630074CC4B /* Sources */,
 				16E98EC52830F6630074CC4B /* Frameworks */,
@@ -278,9 +278,9 @@
 			dependencies = (
 				16E98ECA2830F6630074CC4B /* PBXTargetDependency */,
 			);
-			name = InfiniteScrollingUITests;
+			name = PicsumPhotosUITests;
 			productName = InfiniteScrollingUITests;
-			productReference = 16E98EC82830F6630074CC4B /* InfiniteScrollingUITests.xctest */;
+			productReference = 16E98EC82830F6630074CC4B /* PicsumPhotosUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -306,7 +306,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 16E98EA32830F6610074CC4B /* Build configuration list for PBXProject "InfiniteScrolling" */;
+			buildConfigurationList = 16E98EA32830F6610074CC4B /* Build configuration list for PBXProject "PicsumPhotos" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -319,9 +319,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				16E98EA72830F6610074CC4B /* InfiniteScrolling */,
-				16E98EBD2830F6630074CC4B /* InfiniteScrollingTests */,
-				16E98EC72830F6630074CC4B /* InfiniteScrollingUITests */,
+				16E98EA72830F6610074CC4B /* PicsumPhotos */,
+				16E98EBD2830F6630074CC4B /* PicsumPhotosTests */,
+				16E98EC72830F6630074CC4B /* PicsumPhotosUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -398,12 +398,12 @@
 /* Begin PBXTargetDependency section */
 		16E98EC02830F6630074CC4B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 16E98EA72830F6610074CC4B /* InfiniteScrolling */;
+			target = 16E98EA72830F6610074CC4B /* PicsumPhotos */;
 			targetProxy = 16E98EBF2830F6630074CC4B /* PBXContainerItemProxy */;
 		};
 		16E98ECA2830F6630074CC4B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 16E98EA72830F6610074CC4B /* InfiniteScrolling */;
+			target = 16E98EA72830F6610074CC4B /* PicsumPhotos */;
 			targetProxy = 16E98EC92830F6630074CC4B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -545,7 +545,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VYHL97YKXP;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = InfiniteScrolling/Info.plist;
+				INFOPLIST_FILE = PicsumPhotos/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -572,7 +572,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VYHL97YKXP;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = InfiniteScrolling/Info.plist;
+				INFOPLIST_FILE = PicsumPhotos/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -611,7 +611,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InfiniteScrolling.app/InfiniteScrolling";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PicsumPhotos.app/PicsumPhotos";
 			};
 			name = Debug;
 		};
@@ -636,7 +636,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InfiniteScrolling.app/InfiniteScrolling";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PicsumPhotos.app/PicsumPhotos";
 			};
 			name = Release;
 		};
@@ -689,7 +689,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		16E98EA32830F6610074CC4B /* Build configuration list for PBXProject "InfiniteScrolling" */ = {
+		16E98EA32830F6610074CC4B /* Build configuration list for PBXProject "PicsumPhotos" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				16E98ED02830F6630074CC4B /* Debug */,
@@ -698,7 +698,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		16E98ED22830F6630074CC4B /* Build configuration list for PBXNativeTarget "InfiniteScrolling" */ = {
+		16E98ED22830F6630074CC4B /* Build configuration list for PBXNativeTarget "PicsumPhotos" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				16E98ED32830F6630074CC4B /* Debug */,
@@ -707,7 +707,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		16E98ED52830F6630074CC4B /* Build configuration list for PBXNativeTarget "InfiniteScrollingTests" */ = {
+		16E98ED52830F6630074CC4B /* Build configuration list for PBXNativeTarget "PicsumPhotosTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				16E98ED62830F6630074CC4B /* Debug */,
@@ -716,7 +716,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		16E98ED82830F6630074CC4B /* Build configuration list for PBXNativeTarget "InfiniteScrollingUITests" */ = {
+		16E98ED82830F6630074CC4B /* Build configuration list for PBXNativeTarget "PicsumPhotosUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				16E98ED92830F6630074CC4B /* Debug */,
