@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import InfiniteScrolling
+@testable import PicsumPhotos
 
 final class RemoteFeedImageDataLoaderTests: XCTestCase {
     

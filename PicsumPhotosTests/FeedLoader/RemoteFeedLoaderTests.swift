@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import InfiniteScrolling
+@testable import PicsumPhotos
 
 class MockHTTPClient: HTTPClient {
     var completion: ((HTTPClientResult) -> Void)?
@@ -34,7 +34,7 @@ final class RemoteFeedLoaderTests: XCTestCase {
         
         let expectation = expectation(description: "wait for images to load")
         
-        sut.loadImages(url: anyURL()) { result in
+        sut.loadFeed(url: anyURL()) { result in
             switch result {
             case .success(let feed):
                 
@@ -59,7 +59,7 @@ final class RemoteFeedLoaderTests: XCTestCase {
         
         let expectation = expectation(description: "wait for images to load")
         
-        sut.loadImages(url: anyURL()) { result in
+        sut.loadFeed(url: anyURL()) { result in
             switch result {
             case .failure(let error as RemoteFeedLoader.Error):
                 XCTAssertEqual(error, RemoteFeedLoader.Error.invalidData)
@@ -82,7 +82,7 @@ final class RemoteFeedLoaderTests: XCTestCase {
                          """
         let expectation = expectation(description: "wait for images to load")
         
-        sut.loadImages(url: anyURL()) { result in
+        sut.loadFeed(url: anyURL()) { result in
             switch result {
             case .success(let feed):
                 XCTAssertTrue(feed.isEmpty)
