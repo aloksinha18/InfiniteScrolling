@@ -1,6 +1,6 @@
 //
 //  RemoteFeedImageDataLoaderTests.swift
-//  InfiniteScrollingTests
+//  PicsumPhotosTests
 //
 //  Created by Alok Sinha on 2022-05-15.
 //

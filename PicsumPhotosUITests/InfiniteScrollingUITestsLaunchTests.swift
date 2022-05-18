@@ -1,13 +1,13 @@
 //
-//  InfiniteScrollingUITestsLaunchTests.swift
-//  InfiniteScrollingUITests
+//  PicsumPhotosUITestsLaunchTests.swift
+//  PicsumPhotosUITests
 //
 //  Created by Alok Sinha on 2022-05-15.
 //
 
 import XCTest
 
-class InfiniteScrollingUITestsLaunchTests: XCTestCase {
+class PicsumPhotosUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

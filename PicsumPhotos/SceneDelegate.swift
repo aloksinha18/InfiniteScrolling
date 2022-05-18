@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  InfiniteScrolling
+//  PicsumPhotos
 //
 //  Created by Alok Sinha on 2022-05-15.
 //
