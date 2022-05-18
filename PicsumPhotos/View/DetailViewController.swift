@@ -172,7 +172,7 @@ extension DetailViewController {
         static let imageViewTop : CGFloat = 8.0
         static let imageViewLeading : CGFloat = 8.0
         static let imageViewTrailing : CGFloat = -8.0
-        static let imageViewHeightMultiplier : CGFloat = 1.3
+        static let imageViewHeightMultiplier : CGFloat = 1.0
         
         static let labelLeading: CGFloat = 8.0
     }
