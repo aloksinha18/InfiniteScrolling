@@ -21,7 +21,7 @@ class RemoteFeedLoader: FeedLoader {
         self.client = client
     }
     
-    func loadImages(url: URL, completion: @escaping (FeedLoader.Result) -> Void) {
+    func loadFeed(url: URL, completion: @escaping (FeedLoader.Result) -> Void) {
         
         client.get(form: url) { result in
             switch result {

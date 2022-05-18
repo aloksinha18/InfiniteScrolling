@@ -36,7 +36,7 @@ final class RemoteFeedImageDataLoader: FeedImageDataLoader {
                     completion(.failure(Error.invalidData))
                 }
             case .failure:
-                completion(.failure(Error.invalidData))
+                completion(.failure(Error.connectivity))
             }
         }
     }

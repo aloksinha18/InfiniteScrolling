@@ -11,7 +11,7 @@ typealias Root = [Feed]
 
 protocol FeedLoader {
     typealias Result = Swift.Result<[Feed] , Error>
-    func loadImages(url: URL, completion: @escaping (FeedLoader.Result) -> Void)
+    func loadFeed(url: URL, completion: @escaping (FeedLoader.Result) -> Void)
 }
 
 

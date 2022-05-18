@@ -34,7 +34,7 @@ class FeedImageViewModel {
         isLoading = true
         currentPage += 1
         
-        feedLoader.loadImages(url: url) { [weak self] result in
+        feedLoader.loadFeed(url: url) { [weak self] result in
             if let feeds = try? result.get() {
                 self?.onFeedLoad?(feeds)
                 self?.isLoading = false
