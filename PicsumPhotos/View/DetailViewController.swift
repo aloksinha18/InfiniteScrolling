@@ -164,10 +164,10 @@ class DetailViewController: UIViewController {
 
 extension DetailViewController {
     private enum Layout {
-        static let segmentControlTop : CGFloat = 100.0
+        static let segmentControlTop : CGFloat = 85.0
         static let segmentControlLeading : CGFloat = 8.0
         static let segmentControlTrailing : CGFloat = -8.0
-        static let segmentControlHeight : CGFloat = 50.0
+        static let segmentControlHeight : CGFloat = 44.0
         
         static let imageViewTop : CGFloat = 8.0
         static let imageViewLeading : CGFloat = 8.0
