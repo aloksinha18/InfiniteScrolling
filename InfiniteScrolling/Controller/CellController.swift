@@ -35,11 +35,14 @@ class CellController {
     }
     
     private func loadImage(url: URL, imageDataLoader: FeedImageDataLoader, for cell: ImageCollectionViewCell) {
+        guard let url =  Endpoint.image(feedImage.id).url else { return }
         cell.activityView.startAnimating()
-        imageDataLoader.loadImageData(from: Endpoint.image(feedImage.id).url!) { result in
-            cell.activityView.stopAnimating()
-            if let imageData = try? result.get() {
-                cell.imageView.image = UIImage(data: imageData)
+        imageDataLoader.loadImageData(from: url) { result in
+            DispatchQueue.main.async {
+                cell.activityView.stopAnimating()
+                if let imageData = try? result.get() {
+                    cell.imageView.image = UIImage(data: imageData)
+                }
             }
         }
     }

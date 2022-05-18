@@ -41,8 +41,8 @@ class ImageFeedCollectionViewController: UIViewController, UICollectionViewDeleg
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupCollectionView()
+        title = viewModel.title
         loadFeed()
     }
     

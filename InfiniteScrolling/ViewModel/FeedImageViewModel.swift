@@ -15,6 +15,10 @@ class FeedImageViewModel {
     
     var onFeedLoad: (([Feed]) -> Void )?
     
+    var title: String {
+        return "Picsum photos"
+    }
+    
     init(feedLoader: FeedLoader) {
         self.feedLoader = feedLoader
     }
